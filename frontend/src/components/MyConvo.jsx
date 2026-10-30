@@ -69,7 +69,7 @@ const MyConvo = ({ fetchAgain, setFetchAgain }) => {
   }, [selectedChat]);
 
   useEffect(() => {
-    socket.on("message recieved", (newMessageReceived) => {
+    socket.on("message received", (newMessageReceived) => {
       if (!selectedChatCompare || selectedChatCompare._id !== newMessageReceived.chat._id) {
         if (!notifications.includes(newMessageReceived)) {
           dispatch(addNotification(newMessageReceived));
@@ -84,7 +84,7 @@ const MyConvo = ({ fetchAgain, setFetchAgain }) => {
     });
 
     return () => {
-      socket.off("message recieved");
+      socket.off("message received");
     };
   });
 
